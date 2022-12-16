@@ -24,6 +24,7 @@ function main()
     var gl = getWebGLContext(myCan);
     if(!gl){console.log("Failed to get the webgl context."); return;}
 
+    //initialize the shaders:
     if(!initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE))
     {console.log("Failed to initialize the shaders."); return;}
 
