@@ -6,7 +6,7 @@ void main()
 {
     gl_Position = myPosition;
     gl_PointSize = mySize;
-}`
+}`;
 
 //create the fshader program:
 var FSHADER_SOURCE = `
@@ -15,7 +15,7 @@ uniform vec4 myColor;
 void main()
 {
     gl_FragColor = myColor;
-}`
+}`;
 
 //main function:
 function main()
@@ -24,7 +24,7 @@ function main()
     var myCan = document.getElementById("IncrementalSizePoints");
 
     //get webgl context:
-    var gl = getWebGLContext(myCan);
+    var gl = myCan.getContext('webgl');
 
     //ensure
     if(!gl)
@@ -49,7 +49,7 @@ function main()
     {console.log("Failed to get the storage location of myColor"); return;}
 
     //get the storage location of the size:
-    var mySize = getUniformFLocation(gl.program, 'mySize'); 
+    var mySize = gl.getUniformLocation(gl.program, 'mySize'); 
 
     //register event handler (function) to be called on mouse press:
     myCan.onmousedown = function(ev){ click(ev, gl, myCan, myPosition, mySize, myColor);};
@@ -88,7 +88,7 @@ function click(ev, gl, myCan, myPosition, mySize, myColor)
 
     //get the length of the points array:
     var len = points.length;
-    var tempSize = 20.0;
+    var tempSize = 10.0;
     for(var i = 0; i < len; i++)
     {
         //xy here is an array of two elements:
@@ -97,7 +97,7 @@ function click(ev, gl, myCan, myPosition, mySize, myColor)
         //rgba is an array of four elements:
         var rgba = colors[i]; 
 
-        tempSize += (10.0 + i);
+        tempSize += (i/5);
         //pass the coordinates to the location of the gl_Position in the webgl system:
         gl.vertexAttrib3f(myPosition, xy[0], xy[1], 0.0);
 
