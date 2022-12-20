@@ -81,7 +81,7 @@ function click(ev, gl, myCan, myPosition, mySize, myColor)
     //note: we pass two value each time, so points is array of arrays(two dimentional array)
     points.push([x, y]);
     
-    colors.push([0.4, 0.4, 0.74, 1.0]);
+    colors.push([1.0, 0.4, 0.74, 1.0]);
     
     //clear the canvas before any draw:
     gl.clear(gl.COLOR_BUFFER_BIT);
@@ -97,7 +97,7 @@ function click(ev, gl, myCan, myPosition, mySize, myColor)
         //rgba is an array of four elements:
         var rgba = colors[i]; 
 
-        tempSize += (i/3);
+        tempSize += (i/5);
         //pass the coordinates to the location of the gl_Position in the webgl system:
         gl.vertexAttrib3f(myPosition, xy[0], xy[1], 0.0);
 
