@@ -14,8 +14,8 @@ var VSHADER_SOURCE = `
   attribute vec4 a_Position;
   uniform float u_CosB, u_SinB;
   void main() {
-    gl_Position.x = a_Position.x * u_CosB - a_Position.y * u_SinB;
-    gl_Position.y = a_Position.x * u_SinB + a_Position.y * u_CosB;
+    gl_Position.x = a_Position.x * u_CosB - a_Position.y * u_SinB;    //xCosB - ySinB
+    gl_Position.y = a_Position.x * u_SinB + a_Position.y * u_CosB;    //xSinB + yCosB
     gl_Position.z = a_Position.z;
     gl_Position.w = 1.0;
   }`;
@@ -23,7 +23,7 @@ var VSHADER_SOURCE = `
 //specify the color of the triangle:
 var FSHADER_SOURCE =
   'void main() {\n' +
-  '  gl_FragColor = vec4(0.0, 0.4, 0.74, 1.0);\n' +
+  '  gl_FragColor = vec4(1.0, 0.4, 0.7, 1.0);\n' +
   '}\n';
 
 //specify the angle of rotation
