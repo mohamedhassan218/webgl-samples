@@ -10,7 +10,7 @@ var VSHADER_SOURCE =
 //fragment shader program:
 var FSHADER_SOURCE =
   'void main() {\n' +
-  '  gl_FragColor = vec4(1.0, 0.4, 0.75, 1.0);\n' +
+  '  gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);\n' +
   '}\n';
 
 
@@ -32,6 +32,7 @@ function main() {
   //initialize the shaders:
   if (!initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE)) 
   {console.log('Failed to intialize shaders.');return;}
+  
   
   //get the number of vertices:
   var n = initVertexBuffers(gl);
@@ -114,7 +115,7 @@ function initVertexBuffers(gl)
   return n;
 }
 
-//function to draw the shape:
+
 function draw(gl, n, currentAngle, modelMatrix, u_ModelMatrix) {
  
     //set the rotate angle:
@@ -132,6 +133,16 @@ function draw(gl, n, currentAngle, modelMatrix, u_ModelMatrix) {
 
 //get the last time that animate called:
 var g_last = Date.now();
+
+
+/**
+ * The role of this function is to update the current angle:
+ * 1- Get the current time.
+ * 2- Find the difference between current time and last time the function has been called. 
+ * 3- Update the last time when the function called to be the current time.
+ * 4- Calculate the new angle using the elapsedTime to be more accurate.
+ * 5- Return the new angle and ensure that it's less than 360.
+ */
 function animate(angle) 
 {
     //get the current time:
