@@ -155,6 +155,10 @@ function animate(angle)
 
     //calculate the new angle:
   var newAngle = angle + (ANGLE_STEP * elapsed) / 1000.0;
-    //ensure that the returned angle is less than 360:
+  
+  if(newAngle > 30 || newAngle < -30)
+  {ANGLE_STEP *= -1;}
+  
+  //ensure that the returned angle is less than 360:
   return newAngle %= 360;
 }
