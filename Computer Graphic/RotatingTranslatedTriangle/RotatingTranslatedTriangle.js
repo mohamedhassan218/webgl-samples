@@ -1,4 +1,5 @@
 //vertex shader program:
+
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'uniform mat4 u_ModelMatrix;\n' +         //model matrix to hold the translation and rotation:
