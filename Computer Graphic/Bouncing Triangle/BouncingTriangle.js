@@ -21,7 +21,7 @@ void main()
 
 //set the translation step over x and y axies:
 //Global variables.
-var Tx = 0.2, Ty = 0.11;
+var Tx = 0.77, Ty = 0.44;
 
 //set the current position of x and y to 0:
 //Global variables.
@@ -131,9 +131,9 @@ function updateTranslation()
     y = y + (Ty * elapsed) / 1000.0;
 
     //limit the moving of the shape:
-    if(x > 1.0 || x < -1.0) 
+    if(x > 0.75 || x < -0.75) 
     {Tx *= -1;}
-    if(y > 0.8 || y < -1.0) 
+    if(y > 0.6 || y < -1.0) 
     {Ty *= -1;}
 }
 
